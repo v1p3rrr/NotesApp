@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Notes app</string>
+    <string name="titleHint">Заголовок</string>
+    <string name="contentHint">Введите текст</string>
+    <string name="loginHint">Введите логин</string>
+    <string name="passwordHint">Введите пароль</string>
+    <string name="loginButton">Войти</string>
+    <string name="regButton">Зарегистрироваться</string>
+</resources>
