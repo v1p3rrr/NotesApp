@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Notes app</string>
+    <string name="app_name">Notes App</string>
     <string name="titleHint">Заголовок</string>
     <string name="contentHint">Введите текст</string>
     <string name="loginHint">Введите логин</string>

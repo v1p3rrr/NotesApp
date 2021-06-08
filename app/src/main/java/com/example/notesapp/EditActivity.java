@@ -5,7 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.text.TextUtils;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -27,10 +30,12 @@ public class EditActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit);
+        getSupportActionBar().setTitle(Html.fromHtml("<font color=\"black\">" + getString(R
+                .string.app_name) + "</font>")); // Перекраска заголовка Actionbar
         init();
         getIntentMain();
         if (noteId != null) {
-            setEditNote();
+            setEditNote(); // Проверка новая заметка или изменение старой
         }
     }
 
@@ -41,8 +46,7 @@ public class EditActivity extends AppCompatActivity {
     }
 
 
-    public void onClickSave(View view) {
-        System.out.println("button pressed1");
+    public void onClickSave() { // Сохранение заметки
         String id = "ID";
         String title = editTitle.getText().toString();
         String textNote = editTextNote.getText().toString();
@@ -58,9 +62,9 @@ public class EditActivity extends AppCompatActivity {
         }
     }
 
-    private void setEditNote() {
+    private void setEditNote() { // Открытие существующей заметки
         noteDataBase.child(noteId).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
+            @Override // Получение списка заметок из бд и подстановка заголовка и текста по полученному ID
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Note editNote = snapshot.getValue(Note.class);
                 assert editNote != null;
@@ -74,24 +78,41 @@ public class EditActivity extends AppCompatActivity {
         });
     }
 
-    private void saveNew(Note note) {
+    private void saveNew(Note note) { // Сохранение новой заметки
         if (!TextUtils.isEmpty(note.title.trim())) {
             noteDataBase.push().setValue(note);
             Toast.makeText(this, "Сохранено", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(this, MainActivity.class));
+            Intent i = new Intent(this, MainActivity.class);
+            startActivity(i);
+            finishAffinity();
+            finish();
         } else {
             Toast.makeText(getApplicationContext(), "Введите заголовок", Toast.LENGTH_SHORT).show();
         }
     }
 
-    private void saveEdited(Note note) {
+    private void saveEdited(Note note) { // Сохранение существующей заметки
         if (!TextUtils.isEmpty(note.title.trim())) {
             noteDataBase.child(noteId).setValue(note);
             Toast.makeText(this, "Сохранено", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(this, MainActivity.class));
+            finishAffinity();
+            finish();
         } else {
             Toast.makeText(getApplicationContext(), "Введите заголовок", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_edit, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        onClickSave();
+        return true;
     }
 
 }

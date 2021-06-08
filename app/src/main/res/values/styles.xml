@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="myTheme" parent="@android:style/Theme.Holo.Light">
+        <item name="android:actionBarStyle">@style/myTheme.ActionBar</item>
+        <item name="android:actionMenuTextColor">@color/black</item>
+    </style>
+
+    <style name="myTheme.ActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
+        <item name="android:background">@color/yellow_dark</item>
+        <item name="android:titleTextStyle">@style/myTheme.ActionBar.Text</item>
+    </style>
+
+    <style name="myTheme.ActionBar.Text" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/black</item>
+    </style>
+</resources>
