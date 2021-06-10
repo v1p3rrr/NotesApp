@@ -47,10 +47,9 @@ public class EditActivity extends AppCompatActivity {
 
 
     public void onClickSave() { // Сохранение заметки
-        String id = "ID";
         String title = editTitle.getText().toString();
         String textNote = editTextNote.getText().toString();
-        Note note = new Note(id, title, textNote);
+        Note note = new Note(title, textNote);
         if (noteId != null) saveEdited(note);
         else saveNew(note);
     }

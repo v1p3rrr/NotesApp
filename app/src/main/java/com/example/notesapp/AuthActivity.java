@@ -46,7 +46,7 @@ public class AuthActivity extends AppCompatActivity {
     }
 
     public void onClickSignUp(View view) { // Метод кнопки регистрации
-        if (TextUtils.isEmpty(enterLogin.getText().toString()) && !TextUtils.isEmpty(enterPassword
+        if (TextUtils.isEmpty(enterLogin.getText().toString()) || TextUtils.isEmpty(enterPassword
                 .getText().toString())) { // Проверка заполнения полей
             Toast.makeText(getApplicationContext(), "Ошибка - логин или пароль не введён!",
                     Toast.LENGTH_SHORT).show();
@@ -70,8 +70,10 @@ public class AuthActivity extends AppCompatActivity {
     }
 
     public void onClickSignIn(View view) { // Метод кнопки входа
-        if (TextUtils.isEmpty(enterLogin.getText().toString()) && TextUtils.isEmpty(enterPassword.getText().toString())) {
+        if (TextUtils.isEmpty(enterLogin.getText().toString()) || TextUtils.isEmpty(enterPassword.getText().toString())) {
             Toast.makeText(getApplicationContext(), "Ошибка - логин или пароль не введён!", Toast.LENGTH_SHORT).show();
+        } else if (enterPassword.getText().toString().length() < 6) {
+            Toast.makeText(getApplicationContext(), "Невозможная длина пароля", Toast.LENGTH_SHORT).show();
         } else {
             mAuth.signInWithEmailAndPassword(enterLogin.getText().toString(), enterPassword.getText().toString()).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                 @Override
