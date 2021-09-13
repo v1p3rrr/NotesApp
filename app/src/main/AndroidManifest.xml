@@ -9,15 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.NotesApp">
-        <activity android:name=".AuthActivity" >
+        <activity android:name=".View.AuthActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".EditActivity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".View.EditActivity" />
+        <activity android:name=".View.MainActivity" />
 
         <meta-data
             android:name="preloaded_fonts"
