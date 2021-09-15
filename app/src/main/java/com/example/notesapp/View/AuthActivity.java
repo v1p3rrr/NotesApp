@@ -13,7 +13,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.notesapp.R;
-import com.example.notesapp.ViewModel.NoteViewModel;
+import com.example.notesapp.ViewModel.AuthViewModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -21,7 +21,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class AuthActivity extends AppCompatActivity {
 
-    private NoteViewModel noteViewModel;
+    private AuthViewModel authViewModel;
     private EditText enterLogin, enterPassword;
 
 
@@ -35,13 +35,13 @@ public class AuthActivity extends AppCompatActivity {
     private void init() {
         enterLogin = findViewById(R.id.enterLogin);
         enterPassword = findViewById(R.id.enterPassword);
-        this.noteViewModel = new ViewModelProvider(this).get(NoteViewModel.class);
+        this.authViewModel = new ViewModelProvider(this).get(AuthViewModel.class);
     }
 
     @Override
     protected void onStart() { // Переход на MainActivity, если пользователь уже вошел ранее
         super.onStart();
-        FirebaseUser currUser = noteViewModel.getMAuth().getCurrentUser();
+        FirebaseUser currUser = authViewModel.getMAuth().getCurrentUser();
         if (currUser != null) {
             startActivity(new Intent(this, MainActivity.class));
             finish();
@@ -56,7 +56,7 @@ public class AuthActivity extends AppCompatActivity {
         } else if (enterPassword.getText().toString().length() < 6) {
             Toast.makeText(getApplicationContext(), "Пароль должен иметь длину не менее 6 символов", Toast.LENGTH_SHORT).show();
         } else { // Процесс регистрации
-            noteViewModel.getMAuth().createUserWithEmailAndPassword(enterLogin.getText().toString(), enterPassword
+            authViewModel.getMAuth().createUserWithEmailAndPassword(enterLogin.getText().toString(), enterPassword
                     .getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
@@ -78,7 +78,7 @@ public class AuthActivity extends AppCompatActivity {
         } else if (enterPassword.getText().toString().length() < 6) {
             Toast.makeText(getApplicationContext(), "Невозможная длина пароля", Toast.LENGTH_SHORT).show();
         } else {
-            noteViewModel.getMAuth().signInWithEmailAndPassword(enterLogin.getText().toString(), enterPassword.getText().toString()).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            authViewModel.getMAuth().signInWithEmailAndPassword(enterLogin.getText().toString(), enterPassword.getText().toString()).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
