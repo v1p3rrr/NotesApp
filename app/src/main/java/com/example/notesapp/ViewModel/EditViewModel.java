@@ -10,7 +10,7 @@ public class EditViewModel {
     private final NoteRepository noteRepository;
 
     public EditViewModel(Application app){
-        super(app);
+
         //TODO: connect to db with notes
     }
 

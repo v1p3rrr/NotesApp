@@ -3,6 +3,7 @@ package com.example.notesapp.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.LiveData;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,6 +17,7 @@ import android.widget.Toast;
 
 import com.example.notesapp.Data.Note;
 import com.example.notesapp.R;
+import com.example.notesapp.ViewModel.MainViewModel;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -35,6 +37,10 @@ public class MainActivity extends AppCompatActivity {
     private String NOTE_KEY = "Note";
     private RecyclerView rcView;
 
+
+    private LiveData<List<Note>> notes;
+    private MainViewModel viewModel;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
         init();
         readFromDb();
         mainAdapter.updateAdapter(listData, listId);
+
+
     }
 
     private void init() { // Инициализация необходимых элементов активити и прочего
@@ -56,37 +64,46 @@ public class MainActivity extends AppCompatActivity {
         rcView.setLayoutManager(new LinearLayoutManager(this));
         noteDataBase = FirebaseDatabase.getInstance().getReference(NOTE_KEY);
         checkAdmins();
+
     }
 
     private void checkAdmins() { // Проверяет, является ли нынешний пользователь админом, указанным в БД
         DatabaseReference admRef = FirebaseDatabase.getInstance().getReference("Adminlist");
 
-        ValueEventListener vListener = new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot != null) {
-                    if (adminList.size() > 0) adminList.clear();
-                    for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                        assert ds.getValue(String.class) != null;
-                        adminList.add(ds.getValue(String.class));
-                    }
-                    String currUser = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                    assert currUser != null;
-                    for (String a : adminList) {
-                        if (a.equals(currUser)) {
-                            getItemTouchHelper().attachToRecyclerView(rcView); // Если админ,
-                            // подключает тачхелпер, позволяющий удалять элементы по свайпу
-                        }
-                    }
-                }
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                //System.out.println("No admins detected");
+        viewModel.getNotes().observe(this,notes1 -> {
+            if (notes1 != null){
+                viewModel.setDisplayList(notes1);
+
             }
-        };
-        admRef.addListenerForSingleValueEvent(vListener);
+        })
+
+//        ValueEventListener vListener = new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                if (dataSnapshot != null) {
+//                    if (adminList.size() > 0) adminList.clear();
+//                    for (DataSnapshot ds : dataSnapshot.getChildren()) {
+//                        assert ds.getValue(String.class) != null;
+//                        adminList.add(ds.getValue(String.class));
+//                    }
+//                    String currUser = FirebaseAuth.getInstance().getCurrentUser().getUid();
+//                    assert currUser != null;
+//                    for (String a : adminList) {
+//                        if (a.equals(currUser)) {
+//                            getItemTouchHelper().attachToRecyclerView(rcView); // Если админ,
+//                            // подключает тачхелпер, позволяющий удалять элементы по свайпу
+//                        }
+//                    }
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//                //System.out.println("No admins detected");
+//            }
+//        };
+//        admRef.addListenerForSingleValueEvent(vListener);
     }
 
     @Override
@@ -95,6 +112,8 @@ public class MainActivity extends AppCompatActivity {
         readFromDb();
         mainAdapter.updateAdapter(listData, listId);
     }
+
+
 
     private void readFromDb() { // Чтение заметок из БД и обновление списка
         ValueEventListener vListener = new ValueEventListener() {
