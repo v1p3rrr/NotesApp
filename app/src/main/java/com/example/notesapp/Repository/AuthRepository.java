@@ -16,7 +16,7 @@ public class AuthRepository {
         return instance;
     }
 
-    public AuthRepository(){
+    private AuthRepository(){
         mAuth = FirebaseAuth.getInstance();
     }
 

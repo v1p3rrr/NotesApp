@@ -1,4 +1,4 @@
-package com.example.notesapp;
+package com.example.notesapp.View;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.notesapp.Data.Note;
-import com.example.notesapp.View.EditActivity;
+import com.example.notesapp.R;
 
 import java.util.ArrayList;
 import java.util.List;
