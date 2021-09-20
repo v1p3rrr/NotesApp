@@ -12,50 +12,50 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.notesapp.Data.Note;
 import com.example.notesapp.R;
+import com.example.notesapp.ViewModel.MainViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MyViewHolder> {
     private Context context;
-    private List<Note> mainArray;
-    private List<String> listId;
+    // private List<Note> mainArray;
+    // private List<String> listId;
+    private MainViewModel mainViewModel;
 
 
-    public MainAdapter(Context context) { // Адаптер, отвечающий за заполнение списка recyclerView
+    public MainAdapter(Context context) throws IllegalAccessException { // Адаптер, отвечающий за заполнение списка recyclerView
         this.context = context;
-        mainArray = new ArrayList<>();
-        listId = new ArrayList<>();
+        mainViewModel.init();
     }
 
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) { // Создание
         View view = LayoutInflater.from(context).inflate(R.layout.note_list_layout, parent, false);
-        return new MyViewHolder(view, context, listId);
+        return new MyViewHolder(view, context);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) { // Заполнение
-        holder.setData(mainArray.get(position).title);
+
+                holder.setData(mainViewModel.getNotes().getValue().get(position).getTitle());
     }
 
     @Override
     public int getItemCount() {
-        return mainArray.size();
+        return mainViewModel.getNotes().getValue().size();
     }
 
     // Класс, отвечающий за отдельный элемент
     static class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private final TextView tvTitle;
         private final Context context;
-        private final List<String> listId;
 
 
-        public MyViewHolder(@NonNull View itemView, Context context, List<String> listId) {
+        public MyViewHolder(@NonNull View itemView, Context context) {
             super(itemView);
             this.context = context;
-            this.listId = listId;
             tvTitle = itemView.findViewById(R.id.tvTitle);
             itemView.setOnClickListener(this);
         }
@@ -67,16 +67,13 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MyViewHolder> 
         @Override
         public void onClick(View v) { // при нажатии на элемент передается ID заметки из бд и переходит на экран изменения
             Intent i = new Intent(context, EditActivity.class);
-            i.putExtra("noteId", listId.get(getAdapterPosition()));
+            i.putExtra("noteId", getAdapterPosition());
             context.startActivity(i);
         }
     }
 
-    public void updateAdapter(List<Note> newList, List<String> ids) { // Обновление списка
-        mainArray.clear();
-        listId.clear();
-        mainArray.addAll(newList);
-        listId.addAll(ids);
+    public void updateAdapter(List<Note> newList) { // Обновление списка
+        mainViewModel.setDisplayList(newList);
         notifyDataSetChanged();
     }
 }

@@ -1,12 +1,11 @@
 package com.example.notesapp.Data;
 
 import android.util.Log;
-import android.widget.Toast;
+
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 
-import com.example.notesapp.View.MainActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -16,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static android.content.ContentValues.TAG;
+
 
 public class NoteLiveData extends LiveData<List<Note>> {
     public final ValueEventListener valueEventListener = new ValueEventListener(){
@@ -29,7 +29,7 @@ public class NoteLiveData extends LiveData<List<Note>> {
                setValue(notes);
             }
             catch (Exception e){
-                Log.i(TAG, "onDataChange: abobus");
+                Log.i(TAG, "onDataChange exception");
             }
         }
         @Override
@@ -39,7 +39,7 @@ public class NoteLiveData extends LiveData<List<Note>> {
 
     };
 
-    DatabaseReference databaseReference;
+    private final DatabaseReference databaseReference;
 
     public NoteLiveData(DatabaseReference ref) {
         this.databaseReference = ref;

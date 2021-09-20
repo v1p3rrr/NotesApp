@@ -64,6 +64,9 @@ public class EditActivity extends AppCompatActivity {
     }
 
     private void setEditNote() { // Открытие существующей заметки
+
+
+
         noteDataBase.child(noteId).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override // Получение списка заметок из бд и подстановка заголовка и текста по полученному ID
             public void onDataChange(@NonNull DataSnapshot snapshot) {
