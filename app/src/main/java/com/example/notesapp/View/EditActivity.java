@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.example.notesapp.Data.Note;
 import com.example.notesapp.R;
 import com.example.notesapp.View.MainActivity;
+import com.example.notesapp.ViewModel.MainViewModel;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -24,9 +25,9 @@ import com.google.firebase.database.ValueEventListener;
 public class EditActivity extends AppCompatActivity {
 
     private EditText editTitle, editTextNote;
-    private DatabaseReference noteDataBase;
     private String NOTE_KEY = "Note";
-    private String noteId;
+    private int noteId;
+    private MainViewModel mainViewModel; //todo
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +37,7 @@ public class EditActivity extends AppCompatActivity {
                 .string.app_name) + "</font>")); // Перекраска заголовка Actionbar
         init();
         getIntentMain();
-        if (noteId != null) {
+        if (noteId != 0) {
             setEditNote(); // Проверка новая заметка или изменение старой
         }
     }
@@ -44,7 +45,12 @@ public class EditActivity extends AppCompatActivity {
     public void init() {
         editTitle = findViewById(R.id.editTitle);
         editTextNote = findViewById(R.id.editTextNote);
-        noteDataBase = FirebaseDatabase.getInstance().getReference(NOTE_KEY);
+
+        mainViewModel.getNotes().observe(this, notes -> {
+            if (notes != null){
+                mainViewModel.setDisplayList(notes);
+            }
+        });
     }
 
 
@@ -52,39 +58,25 @@ public class EditActivity extends AppCompatActivity {
         String title = editTitle.getText().toString();
         String textNote = editTextNote.getText().toString();
         Note note = new Note(title, textNote);
-        if (noteId != null) saveEdited(note);
+        if (noteId != 0) saveEdited(note);
         else saveNew(note);
     }
 
     private void getIntentMain() {
         Intent i = getIntent();
         if (i != null) {
-            noteId = i.getStringExtra("noteId");
+            noteId = i.getIntExtra("noteId", 0);
         }
     }
 
     private void setEditNote() { // Открытие существующей заметки
-
-
-
-        noteDataBase.child(noteId).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override // Получение списка заметок из бд и подстановка заголовка и текста по полученному ID
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Note editNote = snapshot.getValue(Note.class);
-                assert editNote != null;
-                editTitle.setText(editNote.title);
-                editTextNote.setText(editNote.textNote);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-            }
-        });
+        editTitle.setText(mainViewModel.getNotes().getValue().get(noteId).getTitle());
+        editTextNote.setText(mainViewModel.getNotes().getValue().get(noteId).getTitle());
     }
 
     private void saveNew(Note note) { // Сохранение новой заметки
-        if (!TextUtils.isEmpty(note.title.trim())) {
-            noteDataBase.push().setValue(note);
+        if (!TextUtils.isEmpty(note.getTitle().trim())) {
+            mainViewModel.saveNewNote(note);
             Toast.makeText(this, "Сохранено", Toast.LENGTH_SHORT).show();
             Intent i = new Intent(this, MainActivity.class);
             startActivity(i);
@@ -96,8 +88,8 @@ public class EditActivity extends AppCompatActivity {
     }
 
     private void saveEdited(Note note) { // Сохранение существующей заметки
-        if (!TextUtils.isEmpty(note.title.trim())) {
-            noteDataBase.child(noteId).setValue(note);
+        if (!TextUtils.isEmpty(note.getTitle().trim())) {
+            mainViewModel.saveEditedNote(note, noteId);
             Toast.makeText(this, "Сохранено", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(this, MainActivity.class));
             finishAffinity();

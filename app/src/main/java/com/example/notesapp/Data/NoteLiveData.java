@@ -18,6 +18,9 @@ import static android.content.ContentValues.TAG;
 
 
 public class NoteLiveData extends LiveData<List<Note>> {
+
+    private final DatabaseReference databaseReference;
+
     public final ValueEventListener valueEventListener = new ValueEventListener(){
         @Override
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -38,8 +41,6 @@ public class NoteLiveData extends LiveData<List<Note>> {
         }
 
     };
-
-    private final DatabaseReference databaseReference;
 
     public NoteLiveData(DatabaseReference ref) {
         this.databaseReference = ref;

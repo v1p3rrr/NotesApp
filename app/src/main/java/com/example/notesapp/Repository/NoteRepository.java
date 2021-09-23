@@ -29,6 +29,7 @@ public class NoteRepository {
     public void init() throws IllegalAccessException {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String UID = user.getUid();
+
         if (UID != null) {
             myRef = FirebaseDatabase.getInstance().getReference().child("users").child(UID).child("Notes");
             notes = new NoteLiveData(myRef);

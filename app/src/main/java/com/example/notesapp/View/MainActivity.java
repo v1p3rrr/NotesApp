@@ -36,17 +36,10 @@ import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
     private MainAdapter mainAdapter;
-
-    //private List<Note> listData;
-    //private List<String> listId;
-   // private List<String> adminList;
-   // private DatabaseReference noteDataBase;
     private String NOTE_KEY = "Notes";
     private RecyclerView rcView;
-
-
-//    private LiveData<List<Note>> notes;
     private MainViewModel mainViewModel;
+    public int test;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -54,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Objects.requireNonNull(getSupportActionBar()).setTitle(Html.fromHtml("<font color=\"black\">" + getString(R
                 .string.app_name) + "</font>")); // Перекраска заголовка Actionbar
+        this.mainViewModel = new ViewModelProvider(this).get(MainViewModel.class);
         init();
         mainAdapter.updateAdapter(mainViewModel.getNotes().getValue());
 
@@ -62,27 +56,27 @@ public class MainActivity extends AppCompatActivity {
 
     private void init() { // Инициализация необходимых элементов активити и прочего
 
-//        adminList = new ArrayList<>();
-//        listData = new ArrayList<>();
-//        listId = new ArrayList<>();
-//        noteDataBase = FirebaseDatabase.getInstance().getReference(NOTE_KEY);
-
-        this.mainViewModel = new ViewModelProvider(this).get(MainViewModel.class);
-        rcView = findViewById(R.id.rcView);
         try {
+            mainViewModel.init();
+            rcView = findViewById(R.id.rcView);
             mainAdapter = new MainAdapter(this);
+            mainViewModel.getNotes().observe(this, notes -> {
+                if (notes != null){
+                    mainViewModel.setDisplayList(notes);
+                    mainAdapter.updateAdapter(notes);
+                }
+            });
+
+            rcView.setAdapter(mainAdapter);
+            rcView.setLayoutManager(new LinearLayoutManager(this));
+            //TODO: checkAdmins();
         }
-        catch (java.lang.IllegalAccessException e){
+        catch (Exception e){
             Log.i(TAG, "IllegalAccessException");
-            mainViewModel.logout();
+            //mainViewModel.logout();
             startActivity(new Intent(MainActivity.this, AuthActivity.class));
             finish();
         }
-
-        rcView.setAdapter(mainAdapter);
-        rcView.setLayoutManager(new LinearLayoutManager(this));
-        //TODO: checkAdmins();
-
     }
 
 //    private void checkAdmins() { // Проверяет, является ли нынешний пользователь админом, указанным в БД
@@ -123,38 +117,6 @@ public class MainActivity extends AppCompatActivity {
 //        admRef.addListenerForSingleValueEvent(vListener);
 //    }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        mainAdapter.updateAdapter(mainViewModel.getNotes().getValue());
-    }
-
-
-
-//    private void readFromDb() { // Чтение заметок из БД и обновление списка
-//        ValueEventListener vListener = new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                if (listData.size() > 0) listData.clear();
-//                if (listId.size() > 0) listId.clear();
-//                for (DataSnapshot ds : dataSnapshot.getChildren()) {
-//                    Note note = ds.getValue(Note.class);
-//                    String id = ds.getKey();
-//                    assert note != null;
-//                    listId.add(id);
-//                    listData.add(note);
-//                }
-//                mainAdapter.updateAdapter(listData, listId);
-//                mainAdapter.notifyDataSetChanged();
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//                Toast.makeText(MainActivity.this, "Ошибка чтения из базы данных", Toast.LENGTH_SHORT).show();
-//            }
-//        };
-//        noteDataBase.addValueEventListener(vListener);
-//    }
 
     private void onLogout() { // метод для выхода из аккаунта
         mainViewModel.logout();
@@ -172,14 +134,11 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) { // Удаление по свайпу
-                mainViewModel.getNotes().observe(MainActivity.this ,notes1 -> {
-                    if (notes1 != null){
-                        mainViewModel.setDisplayList(notes1);
+
                         mainViewModel.deleteNote(viewHolder.getAdapterPosition());
                         mainAdapter.updateAdapter(mainViewModel.getNotes().getValue());
                         mainAdapter.notifyDataSetChanged();
                     }
-                });}
         });
     }
 

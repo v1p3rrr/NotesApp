@@ -30,7 +30,7 @@ public class MainViewModel extends ViewModel { // Когда VM, когда Andr
         return noteRepository.getNotes();
     }
 
-    public void deleteNote(int id){ // как передать конкретную
+    public void deleteNote(int id){
         displayList.remove(id);
         noteRepository.updateNotes(displayList);
     }
@@ -39,8 +39,13 @@ public class MainViewModel extends ViewModel { // Когда VM, когда Andr
         this.displayList = (ArrayList<Note>) notes;
     }
 
-    public void saveNote(Note note){
+    public void saveNewNote(Note note){
         displayList.add(note);
+        noteRepository.saveNote(displayList);
+    }
+
+    public void saveEditedNote(Note note, int id){
+        displayList.set(id, note);
         noteRepository.saveNote(displayList);
     }
 

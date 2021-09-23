@@ -1,23 +1,29 @@
-com/example/notesapp/MainAdapter.java
- com.example.notesapp.MainAdapter
- com.example.notesapp.MainAdapter$MyViewHolder
-com/example/notesapp/ViewModel/NoteViewModel.java
- com.example.notesapp.ViewModel.NoteViewModel
-com/example/notesapp/View/MainActivity.java
- com.example.notesapp.View.MainActivity
- com.example.notesapp.View.MainActivity$1
- com.example.notesapp.View.MainActivity$2
- com.example.notesapp.View.MainActivity$3
+com/example/notesapp/Repository/AuthRepository.java
+ com.example.notesapp.Repository.AuthRepository
+com/example/notesapp/ViewModel/AuthViewModel.java
+ com.example.notesapp.ViewModel.AuthViewModel
+com/example/notesapp/Data/NoteLiveData.java
+ com.example.notesapp.Data.NoteLiveData
+ com.example.notesapp.Data.NoteLiveData$1
 com/example/notesapp/BuildConfig.java
  com.example.notesapp.BuildConfig
 com/example/notesapp/Data/Note.java
  com.example.notesapp.Data.Note
 com/example/notesapp/Repository/NoteRepository.java
  com.example.notesapp.Repository.NoteRepository
+com/example/notesapp/ViewModel/MainViewModel.java
+ com.example.notesapp.ViewModel.MainViewModel
+com/example/notesapp/ViewModel/EditViewModel.java
+ com.example.notesapp.ViewModel.EditViewModel
+com/example/notesapp/View/MainAdapter.java
+ com.example.notesapp.View.MainAdapter
+ com.example.notesapp.View.MainAdapter$MyViewHolder
+com/example/notesapp/View/MainActivity.java
+ com.example.notesapp.View.MainActivity
+ com.example.notesapp.View.MainActivity$1
 com/example/notesapp/View/AuthActivity.java
  com.example.notesapp.View.AuthActivity
  com.example.notesapp.View.AuthActivity$1
  com.example.notesapp.View.AuthActivity$2
 com/example/notesapp/View/EditActivity.java
  com.example.notesapp.View.EditActivity
- com.example.notesapp.View.EditActivity$1

@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelStoreOwner;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.notesapp.Data.Note;
@@ -19,13 +21,13 @@ import java.util.List;
 
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MyViewHolder> {
     private Context context;
-    // private List<Note> mainArray;
-    // private List<String> listId;
+    private List<Note> mainArray;
     private MainViewModel mainViewModel;
 
 
     public MainAdapter(Context context) throws IllegalAccessException { // Адаптер, отвечающий за заполнение списка recyclerView
         this.context = context;
+        this.mainViewModel = new ViewModelProvider((ViewModelStoreOwner) this).get(MainViewModel.class);
         mainViewModel.init();
     }
 
@@ -73,7 +75,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MyViewHolder> 
     }
 
     public void updateAdapter(List<Note> newList) { // Обновление списка
-        mainViewModel.setDisplayList(newList);
+        mainArray = newList;
         notifyDataSetChanged();
     }
 }
