@@ -1,5 +1,9 @@
 package com.example.notesapp.ViewModel;
 
+import android.app.Application;
+
+import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 
@@ -10,13 +14,14 @@ import com.example.notesapp.Repository.NoteRepository;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainViewModel extends ViewModel { // Когда VM, когда Android VM?
+public class MainViewModel extends AndroidViewModel { // Когда VM, когда Android VM?
     private final NoteRepository noteRepository;
     private final AuthRepository authRepository;
     private ArrayList<Note> displayList;
 
 
-    public MainViewModel() {
+    public MainViewModel(Application app) {
+        super(app);
         noteRepository = NoteRepository.getInstance();
         authRepository = AuthRepository.getInstance();
         displayList = new ArrayList<>();

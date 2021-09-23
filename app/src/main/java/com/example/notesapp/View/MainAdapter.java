@@ -22,13 +22,11 @@ import java.util.List;
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MyViewHolder> {
     private Context context;
     private List<Note> mainArray;
-    private MainViewModel mainViewModel;
 
 
     public MainAdapter(Context context) throws IllegalAccessException { // Адаптер, отвечающий за заполнение списка recyclerView
         this.context = context;
-        this.mainViewModel = new ViewModelProvider((ViewModelStoreOwner) this).get(MainViewModel.class);
-        mainViewModel.init();
+        mainArray = new ArrayList<>();
     }
 
     @NonNull
@@ -41,12 +39,12 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MyViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) { // Заполнение
 
-                holder.setData(mainViewModel.getNotes().getValue().get(position).getTitle());
+                holder.setData(mainArray.get(position).getTitle());
     }
 
     @Override
     public int getItemCount() {
-        return mainViewModel.getNotes().getValue().size();
+        return mainArray.size();
     }
 
     // Класс, отвечающий за отдельный элемент

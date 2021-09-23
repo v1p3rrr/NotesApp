@@ -5,6 +5,7 @@ import static android.content.ContentValues.TAG;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.ItemTouchHelper;
@@ -48,10 +49,12 @@ public class MainActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).setTitle(Html.fromHtml("<font color=\"black\">" + getString(R
                 .string.app_name) + "</font>")); // Перекраска заголовка Actionbar
         this.mainViewModel = new ViewModelProvider(this).get(MainViewModel.class);
+        try {
+            mainAdapter = new MainAdapter(this);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
         init();
-        mainAdapter.updateAdapter(mainViewModel.getNotes().getValue());
-
-
     }
 
     private void init() { // Инициализация необходимых элементов активити и прочего
@@ -59,12 +62,14 @@ public class MainActivity extends AppCompatActivity {
         try {
             mainViewModel.init();
             rcView = findViewById(R.id.rcView);
-            mainAdapter = new MainAdapter(this);
+
             mainViewModel.getNotes().observe(this, notes -> {
                 if (notes != null){
                     mainViewModel.setDisplayList(notes);
                     mainAdapter.updateAdapter(notes);
+                    System.out.println(notes.get(0).getTextNote());
                 }
+                System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
             });
 
             rcView.setAdapter(mainAdapter);
