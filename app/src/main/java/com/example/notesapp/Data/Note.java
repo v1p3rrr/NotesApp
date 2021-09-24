@@ -10,6 +10,7 @@ public class Note implements Serializable {
         this.textNote = textNote;
     }
 
+
     public String getTitle(){
         return this.title;
     }

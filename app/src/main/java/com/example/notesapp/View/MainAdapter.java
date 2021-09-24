@@ -8,19 +8,16 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelStoreOwner;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.notesapp.Data.Note;
 import com.example.notesapp.R;
-import com.example.notesapp.ViewModel.MainViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MyViewHolder> {
-    private Context context;
+    private final Context context;
     private List<Note> mainArray;
 
 
@@ -38,8 +35,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MyViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) { // Заполнение
-
-                holder.setData(mainArray.get(position).getTitle());
+        holder.setData(mainArray.get(position).getTitle());
     }
 
     @Override
@@ -74,6 +70,6 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MyViewHolder> 
 
     public void updateAdapter(List<Note> newList) { // Обновление списка
         mainArray = newList;
-        notifyDataSetChanged();
+        //notifyDataSetChanged();
     }
 }

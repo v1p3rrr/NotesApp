@@ -2,6 +2,7 @@ package com.example.notesapp.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,41 +15,43 @@ import android.widget.Toast;
 
 import com.example.notesapp.Data.Note;
 import com.example.notesapp.R;
-import com.example.notesapp.View.MainActivity;
-import com.example.notesapp.ViewModel.MainViewModel;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import com.example.notesapp.ViewModel.EditViewModel;
+
+import java.util.Objects;
 
 public class EditActivity extends AppCompatActivity {
 
     private EditText editTitle, editTextNote;
-    private String NOTE_KEY = "Note";
     private int noteId;
-    private MainViewModel mainViewModel; //todo
+    private EditViewModel editViewModel; //todo
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit);
-        getSupportActionBar().setTitle(Html.fromHtml("<font color=\"black\">" + getString(R
+        Objects.requireNonNull(getSupportActionBar()).setTitle(Html.fromHtml("<font color=\"black\">" + getString(R
                 .string.app_name) + "</font>")); // Перекраска заголовка Actionbar
-        init();
         getIntentMain();
-        if (noteId != 0) {
-            setEditNote(); // Проверка новая заметка или изменение старой
-        }
+        init();
     }
 
     public void init() {
         editTitle = findViewById(R.id.editTitle);
         editTextNote = findViewById(R.id.editTextNote);
+        this.editViewModel = new ViewModelProvider(this).get(EditViewModel.class);
+        try {
+            editViewModel.init();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
 
-        mainViewModel.getNotes().observe(this, notes -> {
+        editViewModel.getNotes().observe(this, notes -> {
             if (notes != null){
-                mainViewModel.setDisplayList(notes);
+                editViewModel.setDisplayList(notes);
+                if (noteId != -1) {
+                    editTitle.setText(notes.get(noteId).getTitle());
+                    editTextNote.setText(notes.get(noteId).getTextNote());
+                }
             }
         });
     }
@@ -58,25 +61,21 @@ public class EditActivity extends AppCompatActivity {
         String title = editTitle.getText().toString();
         String textNote = editTextNote.getText().toString();
         Note note = new Note(title, textNote);
-        if (noteId != 0) saveEdited(note);
+        if (noteId != -1) saveEdited(note);
         else saveNew(note);
     }
 
     private void getIntentMain() {
         Intent i = getIntent();
         if (i != null) {
-            noteId = i.getIntExtra("noteId", 0);
+            noteId = i.getIntExtra("noteId", -1);
         }
     }
 
-    private void setEditNote() { // Открытие существующей заметки
-        editTitle.setText(mainViewModel.getNotes().getValue().get(noteId).getTitle());
-        editTextNote.setText(mainViewModel.getNotes().getValue().get(noteId).getTitle());
-    }
 
     private void saveNew(Note note) { // Сохранение новой заметки
         if (!TextUtils.isEmpty(note.getTitle().trim())) {
-            mainViewModel.saveNewNote(note);
+            editViewModel.saveNewNote(note);
             Toast.makeText(this, "Сохранено", Toast.LENGTH_SHORT).show();
             Intent i = new Intent(this, MainActivity.class);
             startActivity(i);
@@ -89,7 +88,7 @@ public class EditActivity extends AppCompatActivity {
 
     private void saveEdited(Note note) { // Сохранение существующей заметки
         if (!TextUtils.isEmpty(note.getTitle().trim())) {
-            mainViewModel.saveEditedNote(note, noteId);
+            editViewModel.saveEditedNote(note, noteId);
             Toast.makeText(this, "Сохранено", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(this, MainActivity.class));
             finishAffinity();

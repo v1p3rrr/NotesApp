@@ -3,9 +3,7 @@ package com.example.notesapp.ViewModel;
 import android.app.Application;
 
 import androidx.lifecycle.AndroidViewModel;
-import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.ViewModel;
 
 import com.example.notesapp.Data.Note;
 import com.example.notesapp.Repository.AuthRepository;
@@ -44,19 +42,10 @@ public class MainViewModel extends AndroidViewModel { // Когда VM, когд
         this.displayList = (ArrayList<Note>) notes;
     }
 
-    public void saveNewNote(Note note){
-        displayList.add(note);
-        noteRepository.saveNote(displayList);
-    }
-
-    public void saveEditedNote(Note note, int id){
-        displayList.set(id, note);
-        noteRepository.saveNote(displayList);
-    }
 
     public void logout(){
         authRepository.getMAuth().signOut();
     }
 
-    // SharedPreference ce wo?
+
 }
