@@ -18,6 +18,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.notesapp.R;
+import com.example.notesapp.View.Adapters.MainAdapter;
 import com.example.notesapp.ViewModel.MainViewModel;
 
 import java.util.Objects;

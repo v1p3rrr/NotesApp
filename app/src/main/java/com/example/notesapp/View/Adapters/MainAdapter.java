@@ -1,4 +1,4 @@
-package com.example.notesapp.View;
+package com.example.notesapp.View.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.notesapp.Data.Note;
 import com.example.notesapp.R;
+import com.example.notesapp.View.EditActivity;
 
 import java.util.ArrayList;
 import java.util.List;
