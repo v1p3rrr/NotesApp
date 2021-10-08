@@ -1,4 +1,4 @@
-package com.example.notesapp.Repository;
+package com.example.notesapp.Repository.Firebase;
 
 import com.example.notesapp.Data.Note;
 import com.example.notesapp.Data.NoteLiveData;
@@ -9,19 +9,19 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 
-public class NoteRepository {
+public class FirebaseNoteRepository {
 
-    private static NoteRepository instance;
+    private static FirebaseNoteRepository instance;
     private DatabaseReference myRef;
     private NoteLiveData notes;
 
-    private NoteRepository() {
+    private FirebaseNoteRepository() {
 
     }
 
-    public static NoteRepository getInstance() {
+    public static FirebaseNoteRepository getInstance() {
         if (instance == null)
-            instance = new NoteRepository();
+            instance = new FirebaseNoteRepository();
         return instance;
     }
 
