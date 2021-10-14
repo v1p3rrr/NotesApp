@@ -7,43 +7,53 @@ import androidx.lifecycle.LiveData;
 
 import com.example.notesapp.Data.Note;
 import com.example.notesapp.Repository.Firebase.FirebaseNoteRepository;
+import com.example.notesapp.Repository.Room.NoteRoomRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class EditViewModel extends AndroidViewModel {
 
-    private final FirebaseNoteRepository firebaseNoteRepository;
-    private ArrayList<Note> displayList;
+    //private final FirebaseNoteRepository noteRepository;
+    private NoteRoomRepository noteRepository;
+    //private ArrayList<Note> displayList;
 
 
     public EditViewModel(Application app) {
         super(app);
-        firebaseNoteRepository = FirebaseNoteRepository.getInstance();
-        displayList = new ArrayList<>();
+        //noteRepository = FirebaseNoteRepository.getInstance();
+        noteRepository = NoteRoomRepository.getInstance();
+        //displayList = new ArrayList<>();
     }
 
-    public void init() throws IllegalAccessException {
-        firebaseNoteRepository.init();
-    }
+   public void init() throws IllegalAccessException {
+//        noteRepository.init();
+       noteRepository = new NoteRoomRepository(getApplication());
+   }
 
     public LiveData<List<Note>> getNotes() {
-        return firebaseNoteRepository.getNotes();
+        return noteRepository.getAllNotes();
     }
 
 
-    public void setDisplayList(List<Note> notes){
-        this.displayList = (ArrayList<Note>) notes;
-    }
+//    public void setDisplayList(List<Note> notes){
+//        this.displayList = (ArrayList<Note>) notes;
+//    }
 
     public void saveNewNote(Note note){
-        displayList.add(note);
-        firebaseNoteRepository.saveNote(displayList);
+        noteRepository.addNote(note);
+        //displayList.add(note);
+        //noteRepository.saveNote(displayList);
     }
 
     public void saveEditedNote(Note note, int id){
-        displayList.set(id, note);
-        firebaseNoteRepository.saveNote(displayList);
+        noteRepository.updateNote(note);
+        //displayList.set(id, note);
+        //noteRepository.saveNote(displayList);
+    }
+
+    public Note getNoteById (int id){
+        return noteRepository.getNoteById(id);
     }
 
 }

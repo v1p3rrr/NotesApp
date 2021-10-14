@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Application;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
@@ -17,10 +18,12 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.notesapp.Data.Note;
 import com.example.notesapp.R;
 import com.example.notesapp.View.Adapters.MainAdapter;
 import com.example.notesapp.ViewModel.MainViewModel;
 
+import java.util.List;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
@@ -40,28 +43,32 @@ public class MainActivity extends AppCompatActivity {
             mainAdapter = new MainAdapter(this);
         } catch (IllegalAccessException e) {
             e.printStackTrace();
+            System.out.println("catched");
         }
         init();
     }
 
+
     private void init() { // Инициализация необходимых элементов активити и прочего
 
         try {
-            mainViewModel.init();
+            mainViewModel.init(getApplication());
             rcView = findViewById(R.id.rcView);
-            mainViewModel.getNotes().observe(this, notes -> {
-                if (notes != null){
-                    mainViewModel.setDisplayList(notes);
-                    mainAdapter.updateAdapter(notes);
+            mainViewModel.getNotes().observe(this, (List<Note> noteList) -> {
+                if (noteList != null){
+                    rcView.setAdapter(mainAdapter);
+//                    mainViewModel.setDisplayList(noteList);
+                    mainAdapter.updateAdapter(noteList);
                 }
             });
 
-            rcView.setAdapter(mainAdapter);
+
             rcView.setLayoutManager(new LinearLayoutManager(this));
             getItemTouchHelper().attachToRecyclerView(rcView);
         }
         catch (Exception e){
-            Log.i(TAG, "IllegalAccessException");
+            System.out.println(e.getMessage());
+            Log.i(TAG, "IllegalAccessException meh");
             //mainViewModel.logout();
             startActivity(new Intent(MainActivity.this, AuthActivity.class));
             finish();
@@ -86,8 +93,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) { // Удаление по свайпу
-
-                        mainViewModel.deleteNote(viewHolder.getAdapterPosition());
+                        mainViewModel.deleteNote(/*viewHolder.getAdapterPosition()*/ mainAdapter.getNote(viewHolder.getAdapterPosition()));
                         mainAdapter.updateAdapter(mainViewModel.getNotes().getValue());
                         //mainAdapter.notifyDataSetChanged();
                     }

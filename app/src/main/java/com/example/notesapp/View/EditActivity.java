@@ -1,5 +1,7 @@
 package com.example.notesapp.View;
 
+import static android.content.ContentValues.TAG;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -8,6 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
@@ -23,7 +26,7 @@ public class EditActivity extends AppCompatActivity {
 
     private EditText editTitle, editTextNote;
     private int noteId;
-    private EditViewModel editViewModel; //todo
+    private EditViewModel editViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,35 +50,40 @@ public class EditActivity extends AppCompatActivity {
 
         editViewModel.getNotes().observe(this, notes -> {
             if (notes != null){
-                editViewModel.setDisplayList(notes);
                 if (noteId != -1) {
-                    editTitle.setText(notes.get(noteId).getTitle());
-                    editTextNote.setText(notes.get(noteId).getTextNote());
-                }
+                    editTitle.setText(editViewModel.getNoteById(noteId).getTitle());
+                    editTextNote.setText(editViewModel.getNoteById(noteId).getTextNote());
+                } else Log.i(TAG, "CmonBruh");
             }
         });
     }
 
+    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        super.onActivityResult(requestCode, resultCode, intent);
+        if (resultCode == RESULT_OK) {
+            if (intent != null) {
+                noteId = intent.getIntExtra("noteId", -1);
+            }
+        }
+    }
 
     public void onClickSave() { // Сохранение заметки
-        String title = editTitle.getText().toString();
-        String textNote = editTextNote.getText().toString();
-        Note note = new Note(title, textNote);
-        if (noteId != -1) saveEdited(note);
-        else saveNew(note);
+        if (noteId != -1) saveEdited();
+        else saveNew();
     }
 
     private void getIntentMain() {
         Intent i = getIntent();
+        Log.i(TAG, String.valueOf(i.hashCode()) + "Edit");
         if (i != null) {
             noteId = i.getIntExtra("noteId", -1);
         }
     }
 
 
-    private void saveNew(Note note) { // Сохранение новой заметки
-        if (!TextUtils.isEmpty(note.getTitle().trim())) {
-            editViewModel.saveNewNote(note);
+    private void saveNew() { // Сохранение новой заметки
+        if (!TextUtils.isEmpty(editTitle.getText().toString().trim())) {
+            editViewModel.saveNewNote(new Note(editTitle.getText().toString(), editTextNote.getText().toString()));
             Toast.makeText(this, "Сохранено", Toast.LENGTH_SHORT).show();
             Intent i = new Intent(this, MainActivity.class);
             startActivity(i);
@@ -86,8 +94,11 @@ public class EditActivity extends AppCompatActivity {
         }
     }
 
-    private void saveEdited(Note note) { // Сохранение существующей заметки
-        if (!TextUtils.isEmpty(note.getTitle().trim())) {
+    private void saveEdited() { // Сохранение существующей заметки
+        if (!TextUtils.isEmpty(editTitle.getText().toString().trim())) {
+            Note note = editViewModel.getNoteById(noteId);
+            note.setTextNote(editTextNote.getText().toString());
+            note.setTitle(editTitle.getText().toString());
             editViewModel.saveEditedNote(note, noteId);
             Toast.makeText(this, "Сохранено", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(this, MainActivity.class));

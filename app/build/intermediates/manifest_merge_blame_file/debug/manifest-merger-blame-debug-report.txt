@@ -204,16 +204,25 @@
 111            android:value="@integer/google_play_services_version" />
 111-->[com.google.android.gms:play-services-basement:17.1.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\c0a19f6f053eb522a5915b1f23ca09a9\jetified-play-services-basement-17.1.0\AndroidManifest.xml:25:13-66
 112
-113        <provider
-113-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\a036a250c2e6c4c39b705bd0dedf6505\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:25:9-29:43
-114            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
-114-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\a036a250c2e6c4c39b705bd0dedf6505\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:26:13-79
-115            android:authorities="com.example.notesapp.lifecycle-process"
-115-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\a036a250c2e6c4c39b705bd0dedf6505\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:27:13-69
-116            android:exported="false"
-116-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\a036a250c2e6c4c39b705bd0dedf6505\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:28:13-37
-117            android:multiprocess="true" />
-117-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\a036a250c2e6c4c39b705bd0dedf6505\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:29:13-40
-118    </application>
-119
-120</manifest>
+113        <service
+113-->[androidx.room:room-runtime:2.3.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\791c9d2dff06c39c29ae56774cf3b472\room-runtime-2.3.0\AndroidManifest.xml:25:9-28:40
+114            android:name="androidx.room.MultiInstanceInvalidationService"
+114-->[androidx.room:room-runtime:2.3.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\791c9d2dff06c39c29ae56774cf3b472\room-runtime-2.3.0\AndroidManifest.xml:26:13-74
+115            android:directBootAware="true"
+115-->[androidx.room:room-runtime:2.3.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\791c9d2dff06c39c29ae56774cf3b472\room-runtime-2.3.0\AndroidManifest.xml:27:13-43
+116            android:exported="false" />
+116-->[androidx.room:room-runtime:2.3.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\791c9d2dff06c39c29ae56774cf3b472\room-runtime-2.3.0\AndroidManifest.xml:28:13-37
+117
+118        <provider
+118-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\a036a250c2e6c4c39b705bd0dedf6505\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:25:9-29:43
+119            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+119-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\a036a250c2e6c4c39b705bd0dedf6505\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:26:13-79
+120            android:authorities="com.example.notesapp.lifecycle-process"
+120-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\a036a250c2e6c4c39b705bd0dedf6505\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:27:13-69
+121            android:exported="false"
+121-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\a036a250c2e6c4c39b705bd0dedf6505\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:28:13-37
+122            android:multiprocess="true" />
+122-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\a036a250c2e6c4c39b705bd0dedf6505\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:29:13-40
+123    </application>
+124
+125</manifest>

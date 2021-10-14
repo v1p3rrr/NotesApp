@@ -40,11 +40,11 @@ public class FirebaseNoteRepository {
         myRef.setValue(notes);
     }
 
-    public void updateNotes(List<Note> notes) {
+    public void updateNote(List<Note> notes) {
         myRef.setValue(notes);
     }
 
-    public NoteLiveData getNotes() {
+    public NoteLiveData getAllNotes() {
         return notes;
     }
 }

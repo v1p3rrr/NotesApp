@@ -1,7 +1,10 @@
 package com.example.notesapp.View.Adapters;
 
+import static android.content.ContentValues.TAG;
+
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,7 +39,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MyViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) { // Заполнение
-        holder.setData(mainArray.get(position).getTitle());
+        holder.setData(mainArray.get(position));
     }
 
     @Override
@@ -44,10 +47,15 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MyViewHolder> 
         return mainArray.size();
     }
 
+    public Note getNote(int position){
+        return mainArray.get(position);
+    }
+
     // Класс, отвечающий за отдельный элемент
     static class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private final TextView tvTitle;
         private final Context context;
+        private Note localNote;
 
 
         public MyViewHolder(@NonNull View itemView, Context context) {
@@ -57,14 +65,16 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MyViewHolder> 
             itemView.setOnClickListener(this);
         }
 
-        public void setData(String title) {
-            tvTitle.setText(title); // заполнение заголовка для элемента списка
+        public void setData(Note note) {
+            localNote = note;
+            tvTitle.setText(note.getTitle()); // заполнение заголовка для элемента списка
         }
 
         @Override
         public void onClick(View v) { // при нажатии на элемент передается ID заметки из бд и переходит на экран изменения
             Intent i = new Intent(context, EditActivity.class);
-            i.putExtra("noteId", getAdapterPosition());
+            i.putExtra("noteId", 1);
+            Log.i(TAG, String.valueOf(i.hashCode()) + "Main");
             context.startActivity(i);
         }
     }

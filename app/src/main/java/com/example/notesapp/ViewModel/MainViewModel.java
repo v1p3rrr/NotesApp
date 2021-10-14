@@ -8,39 +8,44 @@ import androidx.lifecycle.LiveData;
 import com.example.notesapp.Data.Note;
 import com.example.notesapp.Repository.Firebase.FirebaseAuthRepository;
 import com.example.notesapp.Repository.Firebase.FirebaseNoteRepository;
+import com.example.notesapp.Repository.Room.NoteRoomRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainViewModel extends AndroidViewModel { // Когда VM, когда Android VM?
-    private final FirebaseNoteRepository firebaseNoteRepository;
+public class MainViewModel extends AndroidViewModel {
+    //private final FirebaseNoteRepository noteRepository;
     private final FirebaseAuthRepository firebaseAuthRepository;
-    private ArrayList<Note> displayList;
+    private NoteRoomRepository noteRepository;
+//    private ArrayList<Note> displayList;
 
 
     public MainViewModel(Application app) {
         super(app);
-        firebaseNoteRepository = FirebaseNoteRepository.getInstance();
+        //noteRepository = FirebaseNoteRepository.getInstance();
+        noteRepository = NoteRoomRepository.getInstance();
         firebaseAuthRepository = FirebaseAuthRepository.getInstance();
-        displayList = new ArrayList<>();
+//        displayList = new ArrayList<>();
     }
 
-    public void init() throws IllegalAccessException {
-        firebaseNoteRepository.init();
-    }
+    public void init(Application app) throws IllegalAccessException {
+//        noteRepository.init();
+        noteRepository = new NoteRoomRepository(app);
+   }
 
     public LiveData<List<Note>> getNotes() {
-        return firebaseNoteRepository.getNotes();
+        return noteRepository.getAllNotes();
     }
 
-    public void deleteNote(int id){
-        displayList.remove(id);
-        firebaseNoteRepository.updateNotes(displayList);
+    public void deleteNote(/*int id*/Note note){
+        noteRepository.deleteNote(note);
+        //displayList.remove(id);
+        //noteRepository.updateNotes(displayList);
     }
-
-    public void setDisplayList(List<Note> notes){
-        this.displayList = (ArrayList<Note>) notes;
-    }
+//
+//    public void setDisplayList(List<Note> notes){
+//        this.displayList = (ArrayList<Note>) notes;
+//    }
 
 
     public void logout(){

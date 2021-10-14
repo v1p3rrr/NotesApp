@@ -9,20 +9,24 @@ import androidx.room.RoomDatabase;
 import com.example.notesapp.Data.Note;
 import com.example.notesapp.Repository.Room.DAO.NoteDAO;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 @Database(entities = {Note.class}, version = 1)
 public abstract class NoteRoomDatabase extends RoomDatabase {
-    private static NoteRoomDatabase instance;
+    private static volatile NoteRoomDatabase instance;
 
-    public abstract NoteDAO getNoteDAO();
+    private static final int NUMBER_OF_THREADS = 4;
+    static final ExecutorService databaseWriteExecutor =
+            Executors.newFixedThreadPool(NUMBER_OF_THREADS);
 
-    public static RoomDatabase getRoomDatabaseInstance(final Context context) {
+    public abstract NoteDAO noteDAO();
+
+    public static NoteRoomDatabase getRoomDatabaseInstance(final Context context) {
         if (instance == null)
             synchronized (NoteRoomDatabase.class) {
                 if (instance == null) {
-                    instance = Room.databaseBuilder(context.getApplicationContext(),
-                            NoteRoomDatabase.class, "partyApp_database")
-                            .allowMainThreadQueries()
-                            .build();
+                    instance = Room.databaseBuilder(context.getApplicationContext(), NoteRoomDatabase.class, "partyApp_database").allowMainThreadQueries().build();
                 }
             }
         return instance;
