@@ -73,7 +73,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MyViewHolder> 
         @Override
         public void onClick(View v) { // при нажатии на элемент передается ID заметки из бд и переходит на экран изменения
             Intent i = new Intent(context, EditActivity.class);
-            i.putExtra("noteId", 1);
+            i.putExtra("noteId", localNote.noteId);
             Log.i(TAG, String.valueOf(i.hashCode()) + "Main");
             context.startActivity(i);
         }
