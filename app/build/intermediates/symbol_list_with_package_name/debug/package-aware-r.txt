@@ -1819,6 +1819,7 @@ id action_text
 id actions
 id activity_chooser_view_content
 id add
+id addImageButton
 id addNote
 id adjust_height
 id adjust_width
@@ -1953,6 +1954,7 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
+id imageViewNote
 id info
 id invisible
 id inward
@@ -2032,6 +2034,7 @@ id never
 id noScroll
 id none
 id normal
+id noteImageLayout
 id notification_background
 id notification_main_column
 id notification_main_column_container
@@ -2145,6 +2148,7 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textTop
+id textViewTest
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
@@ -2248,6 +2252,7 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_auth
 layout activity_edit
+layout activity_image
 layout activity_main
 layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row

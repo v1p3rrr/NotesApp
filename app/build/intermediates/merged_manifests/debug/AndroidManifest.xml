@@ -30,6 +30,7 @@
         </activity>
         <activity android:name="com.example.notesapp.View.EditActivity" />
         <activity android:name="com.example.notesapp.View.MainActivity" />
+        <activity android:name="com.example.notesapp.View.ImageActivity" />
 
         <meta-data
             android:name="preloaded_fonts"

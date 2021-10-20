@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:2:1-27:12
-INJECTED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:2:1-27:12
-INJECTED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:2:1-27:12
-INJECTED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:2:1-27:12
+ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:2:1-28:12
 MERGED from [com.google.android.material:material:1.3.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\03f9cc11f90ad93e69b8a409be0ef64e\material-1.3.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\e4075c391fa987298e8573c770ef12a3\constraintlayout-2.0.1\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\32d9d35fe98863887f04f13cda99fcb2\appcompat-1.2.0\AndroidManifest.xml:17:1-24:12
@@ -60,25 +60,25 @@ MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\vpr\.gradle\cach
 MERGED from [androidx.print:print:1.0.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\86d0755ff4181c9336d0265657cdada3\print-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\ac8a1f99f0b84e7bfedb7d47b102c1fe\jetified-annotation-experimental-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.firebase:firebase-database-collection:17.0.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\28fb6889bfa227197aa7c6cd014fc715\jetified-firebase-database-collection-17.0.0\AndroidManifest.xml:2:1-7:12
-INJECTED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:2:1-27:12
-INJECTED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:2:1-27:12
-INJECTED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:2:1-27:12
+INJECTED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:2:1-28:12
 	package
 		ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:3:5-35
 		INJECTED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:2:1-27:12
+		ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:2:1-28:12
 		INJECTED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:2:1-27:12
+		ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:2:1-28:12
 		INJECTED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:5:5-25:19
+ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:5:5-26:19
 MERGED from [com.google.android.material:material:1.3.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\03f9cc11f90ad93e69b8a409be0ef64e\material-1.3.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.3.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\03f9cc11f90ad93e69b8a409be0ef64e\material-1.3.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\e4075c391fa987298e8573c770ef12a3\constraintlayout-2.0.1\AndroidManifest.xml:9:5-20
@@ -145,12 +145,16 @@ activity#com.example.notesapp.View.MainActivity
 ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:20:9-55
 	android:name
 		ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:20:19-52
-meta-data#preloaded_fonts
-ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:22:9-24:57
-	android:resource
-		ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:24:13-54
+activity#com.example.notesapp.View.ImageActivity
+ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:21:9-56
 	android:name
-		ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:23:13-43
+		ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:21:19-53
+meta-data#preloaded_fonts
+ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:23:9-25:57
+	android:resource
+		ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:25:13-54
+	android:name
+		ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:24:13-43
 uses-sdk
 INJECTED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml

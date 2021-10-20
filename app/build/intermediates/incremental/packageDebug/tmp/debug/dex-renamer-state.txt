@@ -1,4 +1,4 @@
-#Thu Oct 14 01:14:30 MSK 2021
+#Wed Oct 20 02:32:48 MSK 2021
 base.0=C\:\\Users\\vpr\\StudioProjects\\NotesApp\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

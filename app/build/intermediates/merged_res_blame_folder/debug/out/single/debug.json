@@ -128,6 +128,10 @@
         "source": "C:\\Users\\vpr\\StudioProjects\\NotesApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_save_note_icon.png"
     },
     {
+        "merged": "C:\\Users\\vpr\\StudioProjects\\NotesApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_image.xml.flat",
+        "source": "C:\\Users\\vpr\\StudioProjects\\NotesApp\\app\\src\\main\\res\\layout\\activity_image.xml"
+    },
+    {
         "merged": "C:\\Users\\vpr\\StudioProjects\\NotesApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_new_note_icon.png.flat",
         "source": "C:\\Users\\vpr\\StudioProjects\\NotesApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_new_note_icon.png"
     },

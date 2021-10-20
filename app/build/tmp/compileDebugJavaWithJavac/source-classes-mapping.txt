@@ -5,10 +5,14 @@ com/example/notesapp/Data/NoteLiveData.java
  com.example.notesapp.Data.NoteLiveData$1
 com/example/notesapp/Repository/Room/NoteRoomRepository.java
  com.example.notesapp.Repository.Room.NoteRoomRepository
+com/example/notesapp/View/ImageActivity.java
+ com.example.notesapp.View.ImageActivity
+ com.example.notesapp.View.ImageActivity$1
 com/example/notesapp/Repository/Firebase/FirebaseAuthRepository.java
  com.example.notesapp.Repository.Firebase.FirebaseAuthRepository
-com/example/notesapp/View/EditActivity.java
- com.example.notesapp.View.EditActivity
+com/example/notesapp/View/MainActivity.java
+ com.example.notesapp.View.MainActivity
+ com.example.notesapp.View.MainActivity$1
 com/example/notesapp/ViewModel/EditViewModel.java
  com.example.notesapp.ViewModel.EditViewModel
 com/example/notesapp/Data/Note.java
@@ -23,13 +27,18 @@ com/example/notesapp/View/AuthActivity.java
  com.example.notesapp.View.AuthActivity
 com/example/notesapp/ViewModel/AuthViewModel.java
  com.example.notesapp.ViewModel.AuthViewModel
+com/example/notesapp/ViewModel/ImageViewModel.java
+ com.example.notesapp.ViewModel.ImageViewModel
 com/example/notesapp/BuildConfig.java
  com.example.notesapp.BuildConfig
-com/example/notesapp/Repository/Room/NoteRoomDatabase.java
- com.example.notesapp.Repository.Room.NoteRoomDatabase
-com/example/notesapp/View/MainActivity.java
- com.example.notesapp.View.MainActivity
- com.example.notesapp.View.MainActivity$1
 com/example/notesapp/View/Adapters/MainAdapter.java
  com.example.notesapp.View.Adapters.MainAdapter
  com.example.notesapp.View.Adapters.MainAdapter$MyViewHolder
+com/example/notesapp/Repository/Room/NoteRoomDatabase.java
+ com.example.notesapp.Repository.Room.NoteRoomDatabase
+ com.example.notesapp.Repository.Room.NoteRoomDatabase$1
+com/example/notesapp/View/EditActivity.java
+ com.example.notesapp.View.EditActivity
+ com.example.notesapp.View.EditActivity$1
+ com.example.notesapp.View.EditActivity$2
+ com.example.notesapp.View.EditActivity$3
