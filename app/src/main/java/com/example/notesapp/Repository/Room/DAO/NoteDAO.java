@@ -28,4 +28,6 @@ public interface NoteDAO {
     @Query("SELECT * FROM note WHERE noteId = :id")
     Note getNoteById(int id);
 
+    @Query("SELECT * FROM note WHERE noteId=(SELECT MAX(noteId) FROM note)")
+    Note getLastNote();
 }

@@ -58,4 +58,8 @@ public class NoteRoomRepository implements RepositoryTasks {
     public Note getNoteById(int id) {
         return mNoteDao.getNoteById(id);
     }
+
+    public Note getLastNote(){
+        return mNoteDao.getLastNote();
+    }
 }

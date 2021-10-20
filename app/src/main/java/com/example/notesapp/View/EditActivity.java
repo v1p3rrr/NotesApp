@@ -60,6 +60,7 @@ public class EditActivity extends AppCompatActivity {
             }
         });
 
+
         editTextNote = findViewById(R.id.editTextNote);
         editTextNote.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -93,6 +94,7 @@ public class EditActivity extends AppCompatActivity {
                 if (noteId != -1) {
                     editTitle.setText(editViewModel.getNoteById(noteId).getTitle());
                     editTextNote.setText(editViewModel.getNoteById(noteId).getTextNote());
+                    Log.i(TAG, "GET IMG EDIT " + editViewModel.getNoteById(noteId).getImage());
                 } else Log.i(TAG, "editActivity error: noteId was not received (has default value of -1)");
             }
         });
@@ -108,6 +110,8 @@ public class EditActivity extends AppCompatActivity {
         if (!TextUtils.isEmpty(editTitle.getText().toString().trim())) {
             Intent i = new Intent(this, ImageActivity.class);
             i.putExtra("noteId", noteId);
+            i.putExtra("noteTitle", editTitle.getText().toString());
+            i.putExtra("noteText", editTextNote.getText().toString());
             startActivity(i);
         }
         else {

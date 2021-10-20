@@ -33,12 +33,16 @@ public class ImageViewModel extends AndroidViewModel {
         noteRepository.addNote(note);
     }
 
-    public void saveEditedNote(Note note){
+    public void saveEditedNote(Note note, int noteId){
         noteRepository.updateNote(note);
     }
 
     public Note getNoteById (int id){
         return noteRepository.getNoteById(id);
+    }
+
+    public Note getLastNote(){
+        return noteRepository.getLastNote();
     }
 
 }

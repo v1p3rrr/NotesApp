@@ -56,4 +56,7 @@ public class EditViewModel extends AndroidViewModel {
         return noteRepository.getNoteById(id);
     }
 
+    public Note getLastNote(){
+        return noteRepository.getLastNote();
+    }
 }
