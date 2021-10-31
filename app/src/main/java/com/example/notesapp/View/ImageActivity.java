@@ -20,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
@@ -39,8 +40,8 @@ public class ImageActivity extends AppCompatActivity {
     private ImageViewModel imageViewModel;
     private ImageView imageView;
     private FloatingActionButton addButton;
-    private Uri uri;
     private int noteId;
+//    private Uri uri;
     private TextView activityDescription;
     private String noteText, noteTitle;
     private boolean isChanged;
@@ -107,43 +108,67 @@ public class ImageActivity extends AppCompatActivity {
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(Intent.ACTION_OPEN_DOCUMENT);
-                intent.setType("image/*");
-                startActivityForResult(Intent.createChooser(intent,"pickImage"),1);
+                getActivityResultRegistry().register("key", new ActivityResultContracts.OpenDocument() , result -> {
+                    if (result != null) {
+                        getApplicationContext().getContentResolver().takePersistableUriPermission(
+                                result,
+                                Intent.FLAG_GRANT_READ_URI_PERMISSION
+                        );
+
+                        imageView.setImageURI(result);
+                        if (noteId!=-1) {
+                            Note note = imageViewModel.getNoteById(noteId);
+                            note.setTextNote(noteText);
+                            note.setTitle(noteTitle);
+                            note.setImage(result.toString());
+                            imageViewModel.saveEditedNote(note, noteId);
+                            Log.i(TAG, "old Image saved");
+                        } else {
+                            Note note = new Note(noteTitle, noteText);
+                            note.setImage(result.toString());
+                            imageViewModel.saveNewNote(note);
+                        }
+                        isChanged = true;
+                        Toast.makeText(ImageActivity.this, "Изображение сохранено", Toast.LENGTH_SHORT).show();
+
+                        Log.i(TAG, "Image saved");
+                        Log.i(TAG, "SET IMG" + result.toString());
+
+                    }
+                }).launch(new String[]{"image/*"});
             }
         });
     }
 
 
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (resultCode==RESULT_OK && requestCode==1){
-            uri=data.getData();
-            getContentResolver().takePersistableUriPermission(uri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
-            imageView.setImageURI(uri);
-            if (noteId!=-1) {
-                Note note = imageViewModel.getNoteById(noteId);
-                note.setTextNote(noteText);
-                note.setTitle(noteTitle);
-                note.setImage(uri.toString());
-                imageViewModel.saveEditedNote(note, noteId);
-                Log.i(TAG, "old Image saved");
-            } else {
-                Note note = new Note(noteTitle, noteText);
-                note.setImage(uri.toString());
-                imageViewModel.saveNewNote(note);
-            }
-            isChanged = true;
-            Toast.makeText(this, "Изображение сохранено", Toast.LENGTH_SHORT).show();
-
-            Log.i(TAG, "Image saved");
-            Log.i(TAG, "SET IMG" + uri.toString());
-
-        }
-    }
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//
+//        if (resultCode==RESULT_OK && requestCode==1){
+//            uri=data.getData();
+//            getContentResolver().takePersistableUriPermission(uri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
+//            imageView.setImageURI(uri);
+//            if (noteId!=-1) {
+//                Note note = imageViewModel.getNoteById(noteId);
+//                note.setTextNote(noteText);
+//                note.setTitle(noteTitle);
+//                note.setImage(uri.toString());
+//                imageViewModel.saveEditedNote(note, noteId);
+//                Log.i(TAG, "old Image saved");
+//            } else {
+//                Note note = new Note(noteTitle, noteText);
+//                note.setImage(uri.toString());
+//                imageViewModel.saveNewNote(note);
+//            }
+//            isChanged = true;
+//            Toast.makeText(this, "Изображение сохранено", Toast.LENGTH_SHORT).show();
+//
+//            Log.i(TAG, "Image saved");
+//            Log.i(TAG, "SET IMG" + uri.toString());
+//
+//        }
+//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
