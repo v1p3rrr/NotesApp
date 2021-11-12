@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
             mainAdapter = new MainAdapter(this);
         } catch (IllegalAccessException e) {
             e.printStackTrace();
-            System.out.println("catched");
+            System.out.println("caught");
         }
         init();
     }

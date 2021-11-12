@@ -15,10 +15,14 @@ com/example/notesapp/View/MainActivity.java
  com.example.notesapp.View.MainActivity$1
 com/example/notesapp/ViewModel/EditViewModel.java
  com.example.notesapp.ViewModel.EditViewModel
+com/example/notesapp/databinding/NoteListLayoutBinding.java
+ com.example.notesapp.databinding.NoteListLayoutBinding
 com/example/notesapp/Data/Note.java
  com.example.notesapp.Data.Note
 com/example/notesapp/ViewModel/MainViewModel.java
  com.example.notesapp.ViewModel.MainViewModel
+com/example/notesapp/databinding/ActivityAuthBinding.java
+ com.example.notesapp.databinding.ActivityAuthBinding
 com/example/notesapp/Repository/Firebase/FirebaseNoteRepository.java
  com.example.notesapp.Repository.Firebase.FirebaseNoteRepository
 com/example/notesapp/Repository/Room/DAO/NoteDAO.java
@@ -29,11 +33,15 @@ com/example/notesapp/ViewModel/AuthViewModel.java
  com.example.notesapp.ViewModel.AuthViewModel
 com/example/notesapp/ViewModel/ImageViewModel.java
  com.example.notesapp.ViewModel.ImageViewModel
+com/example/notesapp/databinding/ActivityMainBinding.java
+ com.example.notesapp.databinding.ActivityMainBinding
 com/example/notesapp/BuildConfig.java
  com.example.notesapp.BuildConfig
 com/example/notesapp/View/Adapters/MainAdapter.java
  com.example.notesapp.View.Adapters.MainAdapter
  com.example.notesapp.View.Adapters.MainAdapter$MyViewHolder
+com/example/notesapp/databinding/ActivityImageBinding.java
+ com.example.notesapp.databinding.ActivityImageBinding
 com/example/notesapp/Repository/Room/NoteRoomDatabase.java
  com.example.notesapp.Repository.Room.NoteRoomDatabase
  com.example.notesapp.Repository.Room.NoteRoomDatabase$1
@@ -42,3 +50,5 @@ com/example/notesapp/View/EditActivity.java
  com.example.notesapp.View.EditActivity$1
  com.example.notesapp.View.EditActivity$2
  com.example.notesapp.View.EditActivity$3
+com/example/notesapp/databinding/ActivityEditBinding.java
+ com.example.notesapp.databinding.ActivityEditBinding

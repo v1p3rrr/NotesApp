@@ -33,7 +33,7 @@ public class ImageViewModel extends AndroidViewModel {
         noteRepository.addNote(note);
     }
 
-    public void saveEditedNote(Note note, int noteId){
+    public void saveEditedNote(Note note){
         noteRepository.updateNote(note);
     }
 

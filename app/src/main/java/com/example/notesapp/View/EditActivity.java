@@ -108,25 +108,21 @@ public class EditActivity extends AppCompatActivity {
 
     public void onClickMoveToImage(){
         if (!TextUtils.isEmpty(editTitle.getText().toString().trim())) {
+            if (noteId == -1) {
+                editViewModel.saveNewNote(new Note(editTitle.getText().toString(), editTextNote.getText().toString()));
+            } else saveEdited();
+            Toast.makeText(this, "Сохранено", Toast.LENGTH_SHORT).show();
             Intent i = new Intent(this, ImageActivity.class);
-            i.putExtra("noteId", noteId);
+            i.putExtra("noteId", editViewModel.getLastNote().getNoteId());
             i.putExtra("noteTitle", editTitle.getText().toString());
             i.putExtra("noteText", editTextNote.getText().toString());
             startActivity(i);
+
         }
         else {
             Toast.makeText(getApplicationContext(), "Введите заголовок", Toast.LENGTH_SHORT).show();
         }
     }
-
-//    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
-//        super.onActivityResult(requestCode, resultCode, intent);
-//        if (resultCode == RESULT_OK) {
-//            if (intent != null) {
-//                noteId = intent.getIntExtra("noteId", -1);
-//            }
-//        }
-//    }
 
     public void onClickSave() { // Сохранение заметки
         if (noteId != -1) saveEdited();
