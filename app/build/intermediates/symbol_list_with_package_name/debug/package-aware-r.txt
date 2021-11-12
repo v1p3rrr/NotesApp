@@ -2571,7 +2571,6 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
-id imageView
 id imageViewNote
 id immediateStop
 id included
@@ -2807,6 +2806,7 @@ id suggestionText
 id supportScrollUp
 id surfaceView
 id surface_view
+id synonymCheck
 id tabMode
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans

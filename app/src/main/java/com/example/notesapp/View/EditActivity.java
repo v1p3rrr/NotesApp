@@ -18,6 +18,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethod;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -28,12 +30,15 @@ import com.example.notesapp.R;
 import com.example.notesapp.ViewModel.EditViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
 public class EditActivity extends AppCompatActivity {
 
-    private EditText editTitle, editTextNote;
-    private FloatingActionButton addImageButton;
+    private AutoCompleteTextView editTitle;
+    private EditText editTextNote;
+    private FloatingActionButton showSynonymsButton;
     private int noteId;
     private EditViewModel editViewModel;
 
@@ -74,14 +79,6 @@ public class EditActivity extends AppCompatActivity {
             }
         });
 
-        addImageButton = findViewById(R.id.addImageButton);
-        addImageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onClickMoveToImage();
-            }
-        });
-
         this.editViewModel = new ViewModelProvider(this).get(EditViewModel.class);
         try {
             editViewModel.init();
@@ -98,6 +95,15 @@ public class EditActivity extends AppCompatActivity {
                 } else Log.i(TAG, "editActivity error: noteId was not received (has default value of -1)");
             }
         });
+
+        showSynonymsButton = findViewById(R.id.synonymCheck);
+        showSynonymsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                synonymShow();
+            }
+        });
+
     }
 
     @Override
@@ -111,7 +117,6 @@ public class EditActivity extends AppCompatActivity {
             if (noteId == -1) {
                 editViewModel.saveNewNote(new Note(editTitle.getText().toString(), editTextNote.getText().toString()));
             } else saveEdited();
-            Toast.makeText(this, "Сохранено", Toast.LENGTH_SHORT).show();
             Intent i = new Intent(this, ImageActivity.class);
             i.putExtra("noteId", editViewModel.getLastNote().getNoteId());
             i.putExtra("noteTitle", editTitle.getText().toString());
@@ -164,6 +169,22 @@ public class EditActivity extends AppCompatActivity {
         }
     }
 
+    private void synonymShow() {
+        editTitle = findViewById(R.id.editTitle);
+        if (editTitle.getText().toString().trim().matches("^[a-zA-Z]+$")) {
+            editViewModel.getSynonymsList(editTitle.getText().toString().trim()).observe(this, (List<String> values) -> {
+                ArrayAdapter<String> adapter = new ArrayAdapter<>(
+                        this,
+                        android.R.layout.simple_dropdown_item_1line,
+                        values
+                );
+                editTitle.setAdapter(adapter);
+                adapter.notifyDataSetChanged();
+                editTitle.showDropDown();
+            });
+        } else System.out.println("wrong pattern");
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_edit, menu);
@@ -172,7 +193,11 @@ public class EditActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        onClickSave();
+        if (item.getItemId() == R.id.addNote) {
+            onClickSave();
+        } else if (item.getItemId() == R.id.addImageButton) {
+            onClickMoveToImage();
+        }
         return true;
     }
 

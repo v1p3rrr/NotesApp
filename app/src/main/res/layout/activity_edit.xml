@@ -10,7 +10,7 @@
     android:background="@color/dark_lighter"
     tools:context=".View.EditActivity">
 
-    <EditText
+    <AutoCompleteTextView
         android:id="@+id/editTitle"
         android:layout_width="0dp"
         android:layout_height="42dp"
@@ -24,7 +24,7 @@
         android:hint="@string/titleHint"
         android:inputType="textPersonName"
         android:padding="10dp"
-        app:layout_constraintEnd_toStartOf="@+id/addImageButton"
+        app:layout_constraintEnd_toStartOf="@+id/synonymCheck"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -50,7 +50,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/addImageButton"
+        android:id="@+id/synonymCheck"
         android:layout_width="wrap_content"
         android:layout_height="56dp"
         android:layout_marginTop="16dp"
@@ -62,6 +62,6 @@
         app:layout_constraintBottom_toTopOf="@+id/editTextNote"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_gallery" />
+        app:srcCompat="@drawable/gph_ic_text" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

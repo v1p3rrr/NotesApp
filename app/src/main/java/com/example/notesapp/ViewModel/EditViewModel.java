@@ -7,6 +7,7 @@ import androidx.lifecycle.LiveData;
 
 import com.example.notesapp.Data.Note;
 import com.example.notesapp.Repository.Firebase.FirebaseNoteRepository;
+import com.example.notesapp.Repository.Network.WordsImplementation;
 import com.example.notesapp.Repository.Room.NoteRoomRepository;
 
 import java.util.ArrayList;
@@ -50,6 +51,10 @@ public class EditViewModel extends AndroidViewModel {
         noteRepository.updateNote(note);
         //displayList.set(id, note);
         //noteRepository.saveNote(displayList);
+    }
+
+    public LiveData<List<String>> getSynonymsList(String word) {
+        return WordsImplementation.getInstance().getSynonyms(word);
     }
 
     public Note getNoteById (int id){

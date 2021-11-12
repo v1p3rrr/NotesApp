@@ -1,10 +1,11 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:2:1-28:12
+ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:2:1-30:12
+INJECTED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:2:1-30:12
+INJECTED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:2:1-30:12
+INJECTED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:2:1-30:12
 MERGED from [com.giphy.sdk:ui:2.1.10] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\8aa24479b9f66c365e89a0efb2501155\jetified-ui-2.1.10\AndroidManifest.xml:2:1-24:12
+MERGED from [androidx.databinding:viewbinding:4.1.3] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\196fc8175e854bc9ecb304d728caf5a0\jetified-viewbinding-4.1.3\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.material:material:1.4.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\ba80b7e1e9bb46ed9d7c5de07dcbc79d\material-1.4.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.1] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\f59898c21bb90bfb2953fcb8f8e8a95d\constraintlayout-2.1.1\AndroidManifest.xml:2:1-11:12
 MERGED from [com.airbnb.android:lottie:3.1.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\5c39230810430860741afdc5005bf429\jetified-lottie-3.1.0\AndroidManifest.xml:2:1-11:12
@@ -36,6 +37,8 @@ MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\vpr\.grad
 MERGED from [androidx.loader:loader:1.0.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\23e4be9e44e91b4322b466aa495f5a41\loader-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.4.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\cd9a142e4503f1129ebbad682e0212b2\lifecycle-viewmodel-2.4.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.room:room-runtime:2.3.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\791c9d2dff06c39c29ae56774cf3b472\room-runtime-2.3.0\AndroidManifest.xml:17:1-31:12
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:2.5.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\7df72dd88ca93ec802c10636cf6b27fd\jetified-imagepipeline-okhttp3-2.5.0\AndroidManifest.xml:2:1-9:12
+MERGED from [io.reactivex.rxjava2:rxandroid:2.0.1] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\4df8fa546ba8729f5a7b0c21352be737\jetified-rxandroid-2.0.1\AndroidManifest.xml:15:1-21:12
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\1c740c66742c9f5acc7a87a1001bc11c\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.appcompat:appcompat-resources:1.3.1] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\9f486e62f8ded509b934f2d73905372a\jetified-appcompat-resources-1.3.1\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\ed0ec8ec1d1bdbabe0ae84fd12a0181c\drawerlayout-1.0.0\AndroidManifest.xml:17:1-22:12
@@ -67,7 +70,6 @@ MERGED from [androidx.sqlite:sqlite-framework:2.1.0] C:\Users\vpr\.gradle\caches
 MERGED from [androidx.sqlite:sqlite:2.1.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\9a810036dab18ea8a4afcdd4e6b45a00\sqlite-2.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\6f6994437439b85790b5b2b38fcb8703\jetified-tracing-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.exoplayer:exoplayer-core:2.13.3] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\41b449c3b4b6fcb4ac182c7cdd8bb5f6\jetified-exoplayer-core-2.13.3\AndroidManifest.xml:17:1-26:12
-MERGED from [androidx.databinding:viewbinding:4.1.1] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\a06fd5ed8343d8948c385d87cc3d4d27\jetified-viewbinding-4.1.1\AndroidManifest.xml:17:1-22:12
 MERGED from [com.github.bumptech.glide:gifdecoder:4.12.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\6585d883182570a578c618efbaebb2b4\jetified-gifdecoder-4.12.0\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.exifinterface:exifinterface:1.2.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\ad7816b652d8a3040c7361feed01221e\exifinterface-1.2.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\a261ae6e55ee2cbf071372d2405fc245\versionedparcelable-1.1.1\AndroidManifest.xml:17:1-27:12
@@ -84,7 +86,6 @@ MERGED from [com.facebook.fresco:animated-webp:2.5.0] C:\Users\vpr\.gradle\cache
 MERGED from [com.facebook.fresco:animated-base:2.5.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\0ce2f6918b9c90c390293efdad7cb4a6\jetified-animated-base-2.5.0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.fresco:animated-drawable:2.5.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\9dff516ee0d159a2b0c90d547ff0d733\jetified-animated-drawable-2.5.0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.fresco:webpsupport:2.5.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\3ea9e76aaa9edb8256d5ccfb51920b6d\jetified-webpsupport-2.5.0\AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:imagepipeline-okhttp3:2.5.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\7df72dd88ca93ec802c10636cf6b27fd\jetified-imagepipeline-okhttp3-2.5.0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.fresco:soloader:2.5.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\e6e2f1eb9a780a04372b92a461934a23\jetified-soloader-2.5.0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.fresco:drawee:2.5.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\03585c231ba5b5f89a8290785135274e\jetified-drawee-2.5.0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.fresco:nativeimagefilters:2.5.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\147083420676f109afc5574bb60584c0\jetified-nativeimagefilters-2.5.0\AndroidManifest.xml:2:1-9:12
@@ -99,25 +100,35 @@ MERGED from [com.facebook.fresco:middleware:2.5.0] C:\Users\vpr\.gradle\caches\t
 MERGED from [com.facebook.fresco:ui-common:2.5.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\5b62fad134399d6362c6f1c32ab15d96\jetified-ui-common-2.5.0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.fresco:imagepipeline-base:2.5.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\e5e1bde5dcb36f512265d4ca688f2175\jetified-imagepipeline-base-2.5.0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.fresco:fbcore:2.5.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\c13d05b9f59933640232028cda6aae9e\jetified-fbcore-2.5.0\AndroidManifest.xml:2:1-9:12
-INJECTED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:2:1-30:12
+INJECTED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:2:1-30:12
+INJECTED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:2:1-30:12
 	package
 		ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:3:5-35
 		INJECTED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:2:1-28:12
+		ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:2:1-30:12
 		INJECTED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:2:1-28:12
+		ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:2:1-30:12
 		INJECTED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:2:11-69
+uses-permission#android.permission.INTERNET
+ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:5:5-66
+MERGED from [com.giphy.sdk:ui:2.1.10] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\8aa24479b9f66c365e89a0efb2501155\jetified-ui-2.1.10\AndroidManifest.xml:10:5-67
+MERGED from [com.giphy.sdk:ui:2.1.10] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\8aa24479b9f66c365e89a0efb2501155\jetified-ui-2.1.10\AndroidManifest.xml:10:5-67
+MERGED from [com.google.firebase:firebase-auth:21.0.1] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\894f0d528dfe4e9c06b382812e4b3c99\jetified-firebase-auth-21.0.1\AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-auth:21.0.1] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\894f0d528dfe4e9c06b382812e4b3c99\jetified-firebase-auth-21.0.1\AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-database:20.0.2] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\1b18266986648724f2312463ff05665a\jetified-firebase-database-20.0.2\AndroidManifest.xml:26:5-67
+MERGED from [com.google.firebase:firebase-database:20.0.2] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\1b18266986648724f2312463ff05665a\jetified-firebase-database-20.0.2\AndroidManifest.xml:26:5-67
+	android:name
+		ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:5:22-64
 application
-ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:5:5-26:19
+ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:7:5-28:19
 MERGED from [com.giphy.sdk:ui:2.1.10] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\8aa24479b9f66c365e89a0efb2501155\jetified-ui-2.1.10\AndroidManifest.xml:12:5-22:19
 MERGED from [com.giphy.sdk:ui:2.1.10] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\8aa24479b9f66c365e89a0efb2501155\jetified-ui-2.1.10\AndroidManifest.xml:12:5-22:19
 MERGED from [com.google.android.material:material:1.4.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\ba80b7e1e9bb46ed9d7c5de07dcbc79d\material-1.4.0\AndroidManifest.xml:22:5-20
@@ -165,55 +176,57 @@ MERGED from [com.facebook.soloader:soloader:0.10.1] C:\Users\vpr\.gradle\caches\
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.7.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\32f9516c501cf8285e6b639d31c0f753\core-1.7.0\AndroidManifest.xml:24:18-86
 	android:supportsRtl
-		ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:10:9-35
+		ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:12:9-35
 	android:label
-		ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:8:9-41
+		ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:10:9-41
 	android:roundIcon
-		ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:9:9-54
+		ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:11:9-54
 	android:icon
-		ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:7:9-43
+		ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:9:9-43
 	android:allowBackup
-		ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:6:9-35
+		ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:8:9-35
 	android:theme
-		ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:11:9-46
+		ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:13:9-46
 activity#com.example.notesapp.View.AuthActivity
-ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:12:9-18:20
+ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:14:9-20:20
 	android:name
-		ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:12:19-52
+		ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:14:19-52
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:13:13-17:29
+ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:15:13-19:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:14:17-69
+ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:16:17-69
 	android:name
-		ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:14:25-66
+		ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:16:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:16:17-77
+ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:18:17-77
 	android:name
-		ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:16:27-74
+		ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:18:27-74
 activity#com.example.notesapp.View.EditActivity
-ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:19:9-55
+ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:21:9-55
 	android:name
-		ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:19:19-52
+		ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:21:19-52
 activity#com.example.notesapp.View.MainActivity
-ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:20:9-55
+ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:22:9-55
 	android:name
-		ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:20:19-52
+		ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:22:19-52
 activity#com.example.notesapp.View.ImageActivity
-ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:21:9-56
+ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:23:9-56
 	android:name
-		ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:21:19-53
+		ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:23:19-53
 meta-data#preloaded_fonts
-ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:23:9-25:57
+ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:25:9-27:57
 	android:resource
-		ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:25:13-54
+		ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:27:13-54
 	android:name
-		ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:24:13-43
+		ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml:26:13-43
 uses-sdk
 INJECTED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml
 INJECTED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml
 MERGED from [com.giphy.sdk:ui:2.1.10] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\8aa24479b9f66c365e89a0efb2501155\jetified-ui-2.1.10\AndroidManifest.xml:6:5-8:41
 MERGED from [com.giphy.sdk:ui:2.1.10] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\8aa24479b9f66c365e89a0efb2501155\jetified-ui-2.1.10\AndroidManifest.xml:6:5-8:41
+MERGED from [androidx.databinding:viewbinding:4.1.3] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\196fc8175e854bc9ecb304d728caf5a0\jetified-viewbinding-4.1.3\AndroidManifest.xml:20:5-44
+MERGED from [androidx.databinding:viewbinding:4.1.3] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\196fc8175e854bc9ecb304d728caf5a0\jetified-viewbinding-4.1.3\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.material:material:1.4.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\ba80b7e1e9bb46ed9d7c5de07dcbc79d\material-1.4.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.material:material:1.4.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\ba80b7e1e9bb46ed9d7c5de07dcbc79d\material-1.4.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.1] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\f59898c21bb90bfb2953fcb8f8e8a95d\constraintlayout-2.1.1\AndroidManifest.xml:5:5-7:41
@@ -276,6 +289,10 @@ MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.4.0] C:\Users\vpr\.gradle\
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.4.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\cd9a142e4503f1129ebbad682e0212b2\lifecycle-viewmodel-2.4.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.room:room-runtime:2.3.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\791c9d2dff06c39c29ae56774cf3b472\room-runtime-2.3.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.room:room-runtime:2.3.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\791c9d2dff06c39c29ae56774cf3b472\room-runtime-2.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:2.5.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\7df72dd88ca93ec802c10636cf6b27fd\jetified-imagepipeline-okhttp3-2.5.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:2.5.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\7df72dd88ca93ec802c10636cf6b27fd\jetified-imagepipeline-okhttp3-2.5.0\AndroidManifest.xml:5:5-7:41
+MERGED from [io.reactivex.rxjava2:rxandroid:2.0.1] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\4df8fa546ba8729f5a7b0c21352be737\jetified-rxandroid-2.0.1\AndroidManifest.xml:19:5-43
+MERGED from [io.reactivex.rxjava2:rxandroid:2.0.1] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\4df8fa546ba8729f5a7b0c21352be737\jetified-rxandroid-2.0.1\AndroidManifest.xml:19:5-43
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\1c740c66742c9f5acc7a87a1001bc11c\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\1c740c66742c9f5acc7a87a1001bc11c\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.appcompat:appcompat-resources:1.3.1] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\9f486e62f8ded509b934f2d73905372a\jetified-appcompat-resources-1.3.1\AndroidManifest.xml:20:5-22:41
@@ -338,8 +355,6 @@ MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\vpr\.gradle\caches\transfo
 MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\6f6994437439b85790b5b2b38fcb8703\jetified-tracing-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.android.exoplayer:exoplayer-core:2.13.3] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\41b449c3b4b6fcb4ac182c7cdd8bb5f6\jetified-exoplayer-core-2.13.3\AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.android.exoplayer:exoplayer-core:2.13.3] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\41b449c3b4b6fcb4ac182c7cdd8bb5f6\jetified-exoplayer-core-2.13.3\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.databinding:viewbinding:4.1.1] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\a06fd5ed8343d8948c385d87cc3d4d27\jetified-viewbinding-4.1.1\AndroidManifest.xml:20:5-44
-MERGED from [androidx.databinding:viewbinding:4.1.1] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\a06fd5ed8343d8948c385d87cc3d4d27\jetified-viewbinding-4.1.1\AndroidManifest.xml:20:5-44
 MERGED from [com.github.bumptech.glide:gifdecoder:4.12.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\6585d883182570a578c618efbaebb2b4\jetified-gifdecoder-4.12.0\AndroidManifest.xml:5:5-7:41
 MERGED from [com.github.bumptech.glide:gifdecoder:4.12.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\6585d883182570a578c618efbaebb2b4\jetified-gifdecoder-4.12.0\AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.exifinterface:exifinterface:1.2.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\ad7816b652d8a3040c7361feed01221e\exifinterface-1.2.0\AndroidManifest.xml:20:5-22:41
@@ -372,8 +387,6 @@ MERGED from [com.facebook.fresco:animated-drawable:2.5.0] C:\Users\vpr\.gradle\c
 MERGED from [com.facebook.fresco:animated-drawable:2.5.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\9dff516ee0d159a2b0c90d547ff0d733\jetified-animated-drawable-2.5.0\AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.fresco:webpsupport:2.5.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\3ea9e76aaa9edb8256d5ccfb51920b6d\jetified-webpsupport-2.5.0\AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.fresco:webpsupport:2.5.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\3ea9e76aaa9edb8256d5ccfb51920b6d\jetified-webpsupport-2.5.0\AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline-okhttp3:2.5.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\7df72dd88ca93ec802c10636cf6b27fd\jetified-imagepipeline-okhttp3-2.5.0\AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline-okhttp3:2.5.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\7df72dd88ca93ec802c10636cf6b27fd\jetified-imagepipeline-okhttp3-2.5.0\AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.fresco:soloader:2.5.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\e6e2f1eb9a780a04372b92a461934a23\jetified-soloader-2.5.0\AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.fresco:soloader:2.5.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\e6e2f1eb9a780a04372b92a461934a23\jetified-soloader-2.5.0\AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.fresco:drawee:2.5.0] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\03585c231ba5b5f89a8290785135274e\jetified-drawee-2.5.0\AndroidManifest.xml:5:5-7:41
@@ -412,14 +425,6 @@ INJECTED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.
 		INJECTED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml
 		ADDED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\vpr\StudioProjects\NotesApp\app\src\main\AndroidManifest.xml
-uses-permission#android.permission.INTERNET
-ADDED from [com.giphy.sdk:ui:2.1.10] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\8aa24479b9f66c365e89a0efb2501155\jetified-ui-2.1.10\AndroidManifest.xml:10:5-67
-MERGED from [com.google.firebase:firebase-auth:21.0.1] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\894f0d528dfe4e9c06b382812e4b3c99\jetified-firebase-auth-21.0.1\AndroidManifest.xml:23:5-67
-MERGED from [com.google.firebase:firebase-auth:21.0.1] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\894f0d528dfe4e9c06b382812e4b3c99\jetified-firebase-auth-21.0.1\AndroidManifest.xml:23:5-67
-MERGED from [com.google.firebase:firebase-database:20.0.2] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\1b18266986648724f2312463ff05665a\jetified-firebase-database-20.0.2\AndroidManifest.xml:26:5-67
-MERGED from [com.google.firebase:firebase-database:20.0.2] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\1b18266986648724f2312463ff05665a\jetified-firebase-database-20.0.2\AndroidManifest.xml:26:5-67
-	android:name
-		ADDED from [com.giphy.sdk:ui:2.1.10] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\8aa24479b9f66c365e89a0efb2501155\jetified-ui-2.1.10\AndroidManifest.xml:10:22-64
 uses-library#android.test.runner
 ADDED from [com.giphy.sdk:ui:2.1.10] C:\Users\vpr\.gradle\caches\transforms-2\files-2.1\8aa24479b9f66c365e89a0efb2501155\jetified-ui-2.1.10\AndroidManifest.xml:13:9-15:40
 	android:required

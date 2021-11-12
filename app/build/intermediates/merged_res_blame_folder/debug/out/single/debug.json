@@ -12,12 +12,12 @@
         "source": "C:\\Users\\vpr\\StudioProjects\\NotesApp\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_foreground.png"
     },
     {
-        "merged": "C:\\Users\\vpr\\StudioProjects\\NotesApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_logout.png.flat",
-        "source": "C:\\Users\\vpr\\StudioProjects\\NotesApp\\app\\src\\main\\res\\drawable-mdpi\\ic_logout.png"
-    },
-    {
         "merged": "C:\\Users\\vpr\\StudioProjects\\NotesApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
         "source": "C:\\Users\\vpr\\StudioProjects\\NotesApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\vpr\\StudioProjects\\NotesApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_logout.png.flat",
+        "source": "C:\\Users\\vpr\\StudioProjects\\NotesApp\\app\\src\\main\\res\\drawable-mdpi\\ic_logout.png"
     },
     {
         "merged": "C:\\Users\\vpr\\StudioProjects\\NotesApp\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_background.png.flat",

@@ -107,7 +107,7 @@ public class ImageActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        if (noteId == -1 && isChanged){
+        if (noteId != -1 && isChanged){
             Intent i = new Intent(this, EditActivity.class);
             i.putExtra("noteId", imageViewModel.getLastNote().getNoteId());
             startActivity(i);

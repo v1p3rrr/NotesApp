@@ -85,14 +85,6 @@
         android:background="#EEEEEE"
         android:layout_gravity="center" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:visibility="gone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#EEEEEE"
-        android:layout_gravity="center" />
-
     <FrameLayout
         android:id="@+id/launchGiphyBtn"
         android:layout_width="40dp"
